@@ -6,4 +6,6 @@ python-jose[cryptography]
 passlib[bcrypt]
 pydantic[email]
 python-dotenv
+passlib[bcrypt]
+bcrypt==4.1.2
 alembic
