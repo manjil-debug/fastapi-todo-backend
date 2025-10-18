@@ -63,3 +63,11 @@ def delete_user(db: Session, user_id: int):
     db.delete(user)
     db.commit()
     return user
+
+def authenticate_user(db: Session, username: str, password: str):
+    user = db.query(models.User).filter(models.User.username == username).first()
+    if not user:
+        return None
+    if not verify_password(password[:72], user.hashed_password):
+        return None
+    return user
